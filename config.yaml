@@ -1,0 +1,25 @@
+workflow: smartspim
+workdir: /mnt/beegfs/joha/sciborg/raw/20211202_14_36_54_HT_Batch12_2_Autofluor_NeuN_cFos
+
+channels:
+  - Ex_0_Em_0
+  - Ex_1_Em_1
+  - Ex_2_Em_2
+
+labels:
+  - auto
+  - neun
+  - cfos
+
+processes:
+  - destripe
+  - stitch
+  - precomputed
+
+master_channel_index: 1
+voxel_size: 1.8, 1.8, 4.0
+compression: 4
+
+threads: 111
+terastitcher: /mnt/beegfs/joha/scripts/task-proc/bin/terastitcher
+mpstitcher: /mnt/beegfs/joha/scripts/task-proc/bin/mpstitcher.py
