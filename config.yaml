@@ -1,22 +1,22 @@
 workflow: smartspim
 
 # Base working directory where images of all channels reside
-workdir: /mnt/beegfs/joha/sciborg/raw/20211202_14_36_54_HT_Batch12_2_Autofluor_NeuN_cFos
+workdir: /mnt/beegfs/joha/scripts/pacqproc/datasets/toy
 
 channels:
   - Ex_0_Em_0
   - Ex_1_Em_1
-  - Ex_2_Em_2
 
 labels:
-  - auto
-  - neun
-  - cfos
+  - ch0
+  - ch1
 
 processes:
   - destripe
   - stitch
   - precomputed
+
+filetype: raw
 
 # Index of master channel for stitching (0-based).
 # Remaining channels will be stitched based on 
@@ -24,14 +24,14 @@ processes:
 master_channel_index: 1
 
 # Voxel sizes in µm (x, y, z)
-voxel_size: 1.8, 1.8, 4.0
+voxel_size: 0.66,0.66,2.0
 
 # Tiff output compression level
 compression: 4
 
 # Maximum # of threads to be employed
-threads: 111
+threads: 32
 
 # Paths to `terastitcher` binary and `mpstitcher.py` Python script
-terastitcher: /mnt/beegfs/joha/scripts/task-proc/bin/terastitcher
-mpstitcher: /mnt/beegfs/joha/scripts/task-proc/bin/mpstitcher.py
+terastitcher: /mnt/beegfs/joha/scripts/pacqproc/bin/terastitcher
+mpstitcher: /mnt/beegfs/joha/scripts/pacqproc/bin/mpstitcher.py
