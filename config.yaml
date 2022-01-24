@@ -1,4 +1,6 @@
 workflow: smartspim
+
+# Base working directory where images of all channels reside
 workdir: /mnt/beegfs/joha/sciborg/raw/20211202_14_36_54_HT_Batch12_2_Autofluor_NeuN_cFos
 
 channels:
@@ -16,10 +18,20 @@ processes:
   - stitch
   - precomputed
 
+# Index of master channel for stitching (0-based).
+# Remaining channels will be stitched based on 
+# the calculation obtained from the master channel.
 master_channel_index: 1
+
+# Voxel sizes in µm (x, y, z)
 voxel_size: 1.8, 1.8, 4.0
+
+# Tiff output compression level
 compression: 4
 
+# Maximum # of threads to be employed
 threads: 111
+
+# Paths to `terastitcher` binary and `mpstitcher.py` Python script
 terastitcher: /mnt/beegfs/joha/scripts/task-proc/bin/terastitcher
 mpstitcher: /mnt/beegfs/joha/scripts/task-proc/bin/mpstitcher.py
